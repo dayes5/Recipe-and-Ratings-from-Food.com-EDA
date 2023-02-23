@@ -114,6 +114,12 @@ What is NMAR? → add this?
 
 We believe that the `description` column of our dataset is Not Missing At Random (NMAR). We believe this because the description of a recipe does not really have any correlation to the other columns like `recipe_id`, `recipe_name`, or `n_steps`. In addition, the description may be missing depending on the actual description itself. For example, if the description would have been extremely short, since the recipe is self-explanatory or very widely known, users may have decided to exclude the description. If the user was lazy, and wanted to only write the bare minimum, they may have also decided to exclude a description. Because of the `description` column’s (logical) independence from the other columns in our DataFrame, and how the values of description itself may influence the missingness of the `description` column, we decided to categorize the `description` column as NMAR.
 
+MAR Permutation Tests
+For our first permutation test, we decided to test whether the distribution of column `rating` when `reviews` differs from the distribution of column `rating` when column `reviews` is not missing. We used Total Variation Distance (TVD) as our test statistic, as we were dealing with two categorical variables. 
+
+Our observed test statistic was about 0.025946493051756208. e got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null stated that the distribution of 'ratings' when 'reviews' is missing is the same as the distribution of 'ratings' when 'review' is not missing. So since we got a stat that was higher than 0.05 which was our threshold, we decided to fail to reject the null which means that the missingness of reviews is not dependent on ratings which would lead us towards saying that the missingess of reviews could be NMAR. 
+
+
 
 ## Hypothesis Testing
 

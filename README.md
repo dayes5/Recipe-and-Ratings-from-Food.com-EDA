@@ -2,7 +2,44 @@
 
 ## Introduction
 
+
+
+Our merged dataset contains these relevant columns: 
+
+| Column Name | Description |
+| ----------- | ----------- |
+| `name` | Name of the recipe |
+| `id` | A unique identifier for each recipe |
+| `tags` | A list of different tags that apply to this recipe |
+| `nutrition`| Nutrition information in the form [calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), carbohydrates (PDV)]. PDV stands for “percentage of daily value” |
+| `n_steps` | The number of steps for this recipe |
+| `description` | The user-provided description |
+| `rating` | The rating given, out of a total of 5 |
+| `review` | The text of the given review |
+| `avg_rate` | The average rating for this recipe |
+
+Note: In our data cleaning process, our `nutrition` column was later split into different columns such as `protein` (PDV) and `carbohydrates` (PDV). One such relevant column is `calories`:
+
+| `calories` | The number of calories for this recipe |
+
 ## Cleaning and EDA
+
+ 
+**Data Cleaning**
+
+Our first step was to merge the recipes DataFrame, which contains information about things like a recipe’s ingredients and tags, with the interactions DataFrame, which contains information about things like reviews and ratings from different users.
+
+We then decided to find the average rating of each recipe, and added the information in a new column: `avg_rate`. We also changed the `submitted` and `date` columns from strings to datetime objects.
+
+Next, we decided to separate the elements inside of the nutrition and tags for better readability and analysis potential. 
+
+We used string methods to convert the data inside of the `nutrition`, `tags`, `steps`, and `ingredients` columns from a string of a list to an actual list.
+
+In our merged dataframe, we exchanged the nutrition columns for columns such as `calories`, `total_fat`, etc., which correspond with the original values and units in the old nutrition lists. 
+
+We decided to use one-hot encoding to flatten our tags data, as shown below:
+
+
 
 ## Assessment of Missingness
 

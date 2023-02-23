@@ -41,6 +41,14 @@ We decided to use one-hot encoding to flatten our tags data, as shown below:
 
 
 
+**Univariate EDA**
+<iframe src="assets/protien_univariate.html" width=800 height=600 frameBorder=0></iframe>
+Description and Trends: This is a graph that shows the recipes and their protein count. From the graph, we can quickly see that many recipes (about 43,000) have a protein amount between 0 to 4 PDV(Percent Daily Value) ; the distribution is right-skewed and we see a large decrease in the number of recipes following the initial peak. 
+
+
+
+
+
 ## Assessment of Missingness
 
 **NMAR ANALYSIS:***

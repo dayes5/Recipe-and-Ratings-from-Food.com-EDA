@@ -109,7 +109,7 @@ Significance: This pivot table gives us the average calories for each rating gro
 
 ## Assessment of Missingness
 
-**NMAR ANALYSIS:***
+**NMAR ANALYSIS:**
 What is NMAR? → add this?
 
 We believe that the `description` column of our dataset is Not Missing At Random (NMAR). We believe this because the description of a recipe does not really have any correlation to the other columns like `recipe_id`, `recipe_name`, or `n_steps`. In addition, the description may be missing depending on the actual description itself. For example, if the description would have been extremely short, since the recipe is self-explanatory or very widely known, users may have decided to exclude the description. If the user was lazy, and wanted to only write the bare minimum, they may have also decided to exclude a description. Because of the `description` column’s (logical) independence from the other columns in our DataFrame, and how the values of description itself may influence the missingness of the `description` column, we decided to categorize the `description` column as NMAR.
@@ -120,7 +120,7 @@ For our first permutation test, we decided to test whether the distribution of c
 
 <iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
 
-** Empirical Distribution of TVD's
+** Empirical Distribution of TVD's**
 
 <iframe src="assets/dist_tvd.html" width=800 height=600 frameBorder=0></iframe>
 

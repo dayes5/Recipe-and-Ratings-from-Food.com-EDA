@@ -50,6 +50,13 @@ Description and Trends: This is a graph that shows the recipes and their protein
 <iframe src="assets/box_biivariate.html" width=800 height=600 frameBorder=0></iframe>
 Description and Trends: This graph gives us a box plot, or a five summary set, for calories per rating. It tells us the minimum, 1st quartile, median, 3rd quartile, and maximum for calories within each ranking. Based on this graph, we can see that the 1st quartile, or where the first 25% of the calorie values would lie, remains fairly consistent throughout each ranking. We can also see that the median for calories, per each rating, are about the same. As the rating decreases, the 3rd quartile, or the value where 75% and less of the data lies, appears to increase in number of calories. The max calorie count is very variable throughout the rankings. 
 
+**Aggregate Table**
+
+print(merged.pivot_table(index = 'rating', columns = 'n_ingredients',values = 'calories',aggfunc = 'mean').to_markdown(index = False))
+
+Significance: This pivot table gives us the average calories for each rating group and the number of ingredients used. This pivot table was created to see if there was any relation between recipes’ number of ingredients and ranking to its average calorie count. Based on the rankings and number of ingredients, we can see that there appears to be an increase in average calories as the number of ingredients increases for each ranking.  
+
+
 
 
 

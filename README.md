@@ -114,7 +114,10 @@ Significance: This pivot table gives us the average calories for each rating gro
 ## Assessment of Missingness
 
 **NMAR ANALYSIS:**
-What is NMAR? → add this?
+
+**What is NMAR?** 
+NMAR or Not Missing at Random is a type of missingness mechanism that tells us that the data is missing due to values within itself, and not dependent on any other data in the dataset.
+
 
 We believe that the `description` column of our dataset is Not Missing At Random (NMAR). We believe this because the description of a recipe does not really have any correlation to the other columns like `recipe_id`, `recipe_name`, or `n_steps`. In addition, the description may be missing depending on the actual description itself. For example, if the description would have been extremely short, since the recipe is self-explanatory or very widely known, users may have decided to exclude the description. If the user was lazy, and wanted to only write the bare minimum, they may have also decided to exclude a description. Because of the `description` column’s (logical) independence from the other columns in our DataFrame, and how the values of description itself may influence the missingness of the `description` column, we decided to categorize the `description` column as NMAR.
 
@@ -134,7 +137,7 @@ Our observed test statistic was about 0.025946493051756208. After running our si
 
 ## Hypothesis Testing**
 
-Question: What types of recipes have the most calories?
+Question: Do Dessert Recipes Tend To Have More Calories Than Other Recipes?
 
 Null Hypothesis: The recipes with the dessert tags have the same amount of calories as the recipes with other tags.
 

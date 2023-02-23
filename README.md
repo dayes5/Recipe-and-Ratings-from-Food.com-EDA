@@ -99,17 +99,22 @@ Description and Trends: This graph gives us a box plot, or a five summary set, f
 ### Aggregate Table
 
 
-Significance: This pivot table gives us the average calories for each rating group and the number of ingredients used. This pivot table was created to see if there was any relation between recipes’ number of ingredients and ranking to its average calorie count. Based on the rankings and number of ingredients, we can see that there appears to be an increase in average calories as the number of ingredients increases for each ranking.  
+|   rating |       1 |       2 |       3 |       4 |       5 |       6 |       7 |       8 |       9 |      10 |      11 |      12 |      13 |      14 |      15 |      16 |      17 |       18 |      19 |      20 |       21 |       22 |      23 |       24 |      25 |      26 |      27 |      28 |       29 |      30 |      31 |      32 |    33 |      37 |
+|---------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|--------:|---------:|--------:|--------:|---------:|---------:|--------:|---------:|--------:|--------:|--------:|--------:|---------:|--------:|--------:|--------:|------:|--------:|
+|        1 |  nan    | 732.766 | 419.622 | 394.972 | 487.563 | 480.697 | 437.898 | 426.47  | 431.817 | 504.764 | 518.621 | 481.568 | 471.365 | 555.204 | 648.734 | 601.148 | 534.337 | 1383.63  | 603.558 | 610.593 |  948.844 | 1947.12  | 851.6   |  528.9   | 965.6   | nan     | 1057.9  | nan     |  nan     | 531.2   | nan     | nan     | nan   |   nan   |
+|        2 |  199.5  | 349.979 | 329.928 | 345.579 | 362.728 | 406.282 | 431.593 | 392.315 | 407.474 | 390.436 | 473.763 | 446.025 | 613.924 | 599.497 | 646.12  | 610.905 | 613.74  | 1226.8   | 532.813 | 597.1   | 1074.17  |  nan     | 149.6   | 1049.05  | 965.6   | nan     | 1136.7  | nan     |  nan     | nan     | nan     | nan     | nan   |   nan   |
+|        3 |  136.05 | 292.772 | 335.446 | 325.212 | 332.405 | 338.827 | 404.565 | 385.13  | 416.227 | 464.635 | 447.069 | 483.974 | 452.795 | 502.469 | 681.038 | 513.886 | 640.673 |  540.492 | 517.72  | 859.706 |  769.953 |  740.025 | 681.883 |  660.8   | 739.6   | 456.1   | 1514    | nan     |  nan     | nan     | nan     | nan     | nan   |   nan   |
+|        4 |  758.68 | 347.403 | 268.41  | 295.253 | 332.652 | 331.788 | 382.173 | 374.346 | 408.351 | 430.635 | 464.698 | 449.799 | 451.492 | 466.983 | 520.831 | 564.316 | 528.639 |  591.55  | 534.66  | 663.231 |  832.135 |  791.418 | 635.236 |  692.518 | 780.2   | 854.564 |  701.1  | 597.15  | 1011.35  | 554.1   | nan     | nan     | nan   |   nan   |
+|        5 | 1263.21 | 390.09  | 276.888 | 301.288 | 322.762 | 353.73  | 385.01  | 380.566 | 414.073 | 431.29  | 466.726 | 463.182 | 490.16  | 518.264 | 545.531 | 587.254 | 549.3   |  609.648 | 599.235 | 655.086 |  756.979 |  680.999 | 671.108 |  576.93  | 766.322 | 847.61  | 1475.78 | 689.778 |  894.596 | 697.996 | 872.454 | 864.475 | 338.2 | 10687.7 |
 
+Significance: This pivot table gives us the average calories for each rating group and the number of ingredients used. This pivot table was created to see if there was any relation between recipes’ number of ingredients and ranking to its average calorie count. Based on the rankings and number of ingredients, we can see that there appears to be an increase in average calories as the number of ingredients increases for each ranking.  
 
 ## Assessment of Missingness
 
-
 ### NMAR ANALYSIS:
 
-**What is NMAR?**
-
-NMAR or Not Missing at Random is a type of missingness mechanism that tells us that the data is missing due to values within itself, and not dependent on any other data in the dataset. 
+**What is NMAR?** 
+NMAR or Not Missing at Random is a type of missingness mechanism that tells us that the data is missing due to values within itself, and not dependent on any other data in the dataset.
 
 We believe that the 114 missing values in the `description` column of our dataset is Not Missing At Random (NMAR). We believe this because the description of a recipe does not really have any relation with other columns like `recipe_id`, `recipe_name`, or `n_steps`. In addition, the description may be missing depending on the actual description itself. For example, if the description would have been extremely short, since the recipe is self-explanatory or very widely known, users may have decided to exclude the description. If the user was lazy, and wanted to only write the bare minimum, they may have also decided to exclude a description. Because of the `description` column’s (logical) independence from the other columns in our DataFrame, and how the values of description itself may influence the missingness of the `description` column, we decided to categorize the `description` column as NMAR.
 
@@ -121,6 +126,12 @@ Another column that had missing values would be the `review` column. This column
 
 For our first permutation test, we decided to test whether the distribution of column `rating` when `review` is missing differs from the distribution of column `rating` when column `review` is not missing. This is because we reasoned that mediocre or higher ratings may have more missing reviews, since the rating itself was enough to account for their opinion. We used Total Variation Distance (TVD) as our test statistic, as we were dealing with two categorical variables. 
 
+** Empirical Distribution of TVD's**
+
+<iframe src="assets/dist_tvd.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
+
 Our observed test statistic was about 0.025946493051756208. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
 
 For our second permutation nest, we decided to look at how the distribution of column `n_steps` when `reviews` is missing differs from the distribution of column `n_steps` when column `reviews` is not missing. We hypothesized that the number of steps may interfere with the user’s patience or time to write a review; lots of steps may leave users feeling more impatient and skip writing a review, for example. Our null hypothesis is that the distribution of `review` when `n_steps` is missing is the same as the distribution of `reviews` when `n_steps` is not missing.
@@ -128,7 +139,7 @@ For our second permutation nest, we decided to look at how the distribution of c
 We decided to use the difference in group means as our test statistic, since `n_steps` is a discrete quantitative variable. Our observed test statistic was about 3.469446951953614e-18. We got a p-value of about 0.0, which was smaller than our significance level of 0.05. Since we got a p-value that was lower than 0.05, which was our threshold, we decided to reject the null. This means that the missingness of reviews is dependent on the number of steps.
 
 
-## Hypothesis Testing
+## Hypothesis Testing**
 
 Question: Do dessert recipes contain more calories?
 
@@ -143,7 +154,7 @@ Observed Test Stat: 86.71038102803391
 Significance Level: 0.05
 
 P-Value: 0.493
-Here, a p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. 
+A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. 
 
 Conclusion: We fail to reject the null hypothesis because our p-value of 0.493 is not significant–it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags have the same mean amount of calories as the recipes with other tags. 
 

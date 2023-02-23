@@ -134,7 +134,7 @@ For our first permutation test, we decided to test whether the distribution of c
 
 Our observed test statistic was about 0.025946493051756208. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
 
-For our second permutation nest, we decided to look at how the distribution of column `n_steps` when `reviews` is missing differs from the distribution of column `n_steps` when column `reviews` is not missing. We hypothesized that the number of steps may interfere with the user’s patience or time to write a review; lots of steps may leave users feeling more impatient and skip writing a review, for example. Our null hypothesis is that the distribution of `review` when `n_steps` is missing is the same as the distribution of `reviews` when `n_steps` is not missing.
+For our second permutation test, we decided to look at how the distribution of column `n_steps` when `reviews` is missing differs from the distribution of column `n_steps` when column `reviews` is not missing. We hypothesized that the number of steps may interfere with the user’s patience or time to write a review; lots of steps may leave users feeling more impatient and skip writing a review, for example. Our null hypothesis is that the distribution of `review` when `n_steps` is missing is the same as the distribution of `reviews` when `n_steps` is not missing.
 
 We decided to use the difference in group means as our test statistic, since `n_steps` is a discrete quantitative variable. Our observed test statistic was about 3.469446951953614e-18. We got a p-value of about 0.0, which was smaller than our significance level of 0.05. Since we got a p-value that was lower than 0.05, which was our threshold, we decided to reject the null. This means that the missingness of reviews is dependent on the number of steps.
 
@@ -154,7 +154,13 @@ Observed Test Stat: 86.71038102803391
 Significance Level: 0.05
 
 P-Value: 0.493
-A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. 
 
-Conclusion: We fail to reject the null hypothesis because our p-value of 0.493 is not significant–it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags have the same mean amount of calories as the recipes with other tags. 
+A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value.
+
+
+<iframe src="assets/dist_hyp.html" width=800 height=600 frameBorder=0></iframe>
+
+Conclusion: We fail to reject the null hypothesis because our p-value of 0.493 is not significant as it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags have the same mean amount of calories as the recipes with other tags. 
+
+
 

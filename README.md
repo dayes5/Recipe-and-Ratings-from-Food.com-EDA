@@ -52,7 +52,7 @@ Description and Trends: This graph gives us a box plot, or a five summary set, f
 
 **Aggregate Table**
 
-print(merged.pivot_table(index = 'rating', columns = 'n_ingredients',values = 'calories',aggfunc = 'mean').to_markdown(index = False))
+print(merged.pivot_table(index = 'rating', columns = 'n_ingredients',values = 'calories',aggfunc = 'mean').head().to_markdown(index = False))
 
 Significance: This pivot table gives us the average calories for each rating group and the number of ingredients used. This pivot table was created to see if there was any relation between recipes’ number of ingredients and ranking to its average calorie count. Based on the rankings and number of ingredients, we can see that there appears to be an increase in average calories as the number of ingredients increases for each ranking.  
 

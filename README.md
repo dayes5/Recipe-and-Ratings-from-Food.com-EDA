@@ -41,10 +41,15 @@ We decided to use one-hot encoding to flatten our tags data, as shown below:
 
 
 
-**Univariate EDA**
+**Univariate Graph EDA**
 <iframe src="assets/protien_univariate2.html" width=800 height=600 frameBorder=0></iframe>
-
 Description and Trends: This is a graph that shows the recipes and their protein count. From the graph, we can quickly see that many recipes (about 43,000) have a protein amount between 0 to 4 PDV(Percent Daily Value) ; the distribution is right-skewed and we see a large decrease in the number of recipes following the initial peak. 
+
+**Bivariate Graph EDA**
+
+<iframe src="assets/box_biivariate.html" width=800 height=600 frameBorder=0></iframe>
+Description and Trends: This graph gives us a box plot, or a five summary set, for calories per rating. It tells us the minimum, 1st quartile, median, 3rd quartile, and maximum for calories within each ranking. Based on this graph, we can see that the 1st quartile, or where the first 25% of the calorie values would lie, remains fairly consistent throughout each ranking. We can also see that the median for calories, per each rating, are about the same. As the rating decreases, the 3rd quartile, or the value where 75% and less of the data lies, appears to increase in number of calories. The max calorie count is very variable throughout the rankings. 
+
 
 
 

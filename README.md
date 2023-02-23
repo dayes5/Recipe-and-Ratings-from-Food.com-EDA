@@ -126,11 +126,11 @@ Another column that had missing values would be the `review` column. This column
 
 For our first permutation test, we decided to test whether the distribution of column `rating` when `review` is missing differs from the distribution of column `rating` when column `review` is not missing. This is because we reasoned that mediocre or higher ratings may have more missing reviews, since the rating itself was enough to account for their opinion. We used Total Variation Distance (TVD) as our test statistic, as we were dealing with two categorical variables. 
 
+<iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
+
 ** Empirical Distribution of TVD's**
 
 <iframe src="assets/dist_tvd.html" width=800 height=600 frameBorder=0></iframe>
-
-<iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
 
 Our observed test statistic was about 0.025946493051756208. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
 

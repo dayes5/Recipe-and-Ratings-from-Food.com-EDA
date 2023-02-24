@@ -135,7 +135,9 @@ For our first permutation test, we decided to test whether the distribution of c
 
 Our observed test statistic was about 0.02594. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
 
-For our second permutation nest, we decided to look at how the distribution of column `calories` when `review` is missing differs from the distribution of column `calories` when column `reviews` is not missing. Our null hypothesis is that the distribution of `review` when `calories` is missing is the same as the distribution of `review` when `calories` is not missing.
+For our second permutation test, we decided to look at how the distribution of column `calories` when `review` is missing differs from the distribution of column `calories` when column `reviews` is not missing. Our null hypothesis is that the distribution of `review` when `calories` is missing is the same as the distribution of `review` when `calories` is not missing.
+
+<iframe src="assets/perm_cal.html" width=800 height=600 frameBorder=0></iframe>
 
 We decided to use the difference in group means (distribution when `review` was missing - when `review` was not missing) as our test statistic, since `calories` is a quantitative variable. Our observed test statistic was about 319.26908. We got a p-value of about 0.006, which was smaller than our significance level of 0.05. Since we got a p-value that was lower than 0.05, we decided to reject the null. This means that the missingness of reviews is dependent on the number of calories for that recipe.
 

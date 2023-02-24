@@ -43,7 +43,7 @@ Our merged dataset (which combines recipe and rating information) contains these
 
 ## Cleaning and EDA
  
-###Data Cleaning
+### Data Cleaning
 
 Our first step was to merge the recipes DataFrame, which contains information about things like a recipe’s ingredients and tags, with the interactions DataFrame, which contains information about things like reviews and ratings from different users.
 
@@ -94,7 +94,7 @@ Description and Trends: This is a graph that shows the recipes and their protein
 
 <iframe src="assets/box_biivariate.html" width=800 height=600 frameBorder=0></iframe>
 
-Description and Trends: This graph gives us a box plot, or a five summary set, for calories per rating. It tells us the minimum, 1st quartile, median, 3rd quartile, and maximum for calories within each ranking. Based on this graph, we can see that the 1st quartile, or where the first 25% of the calorie values would lie, remains fairly consistent throughout each ranking. We can also see that the median for calories, per each rating, are about the same. As the rating decreases, the 3rd quartile, or the value where 75% and less of the data lies, appears to increase in number of calories. The max calorie count is very variable throughout the rankings. 
+Description and Trends: This graph gives us a box plot, or a five summary set, for calories per rating. It tells us the minimum, 1st quartile, median, 3rd quartile, and maximum for calories within each ranking. Based on this graph, we can see that the median and the 1st quartile, or where the first 25% of the calorie values would lie, remains fairly consistent throughout each ranking. As the rating decreases, the 3rd quartile, or the value where 75% and less of the data lies, appears to increase in number of calories. The max calorie count is very variable throughout the rankings. 
 
 ### Aggregate Table
 
@@ -126,35 +126,36 @@ Another column that had missing values would be the `review` column. This column
 
 For our first permutation test, we decided to test whether the distribution of column `rating` when `review` is missing differs from the distribution of column `rating` when column `review` is not missing. This is because we reasoned that mediocre or higher ratings may have more missing reviews, since the rating itself was enough to account for their opinion. We used Total Variation Distance (TVD) as our test statistic, as we were dealing with two categorical variables. 
 
-** Empirical Distribution of TVD's**
+<iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
+
+**Empirical Distribution of TVD's**
 
 <iframe src="assets/dist_tvd.html" width=800 height=600 frameBorder=0></iframe>
 
-<iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
+Our observed test statistic was about 0.02594. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
 
-Our observed test statistic was about 0.025946493051756208. We got a p-value of 0.822. What this means in terms of our question is that we would fail to reject the null hypothesis. Our null hypothesis is that the distribution of `rating` when `review` is missing is the same as the distribution of `rating` when `review` is not missing. Since we got a p-value that was higher than 0.05, which was our threshold, we decided to fail to reject the null. This means that the missingness of reviews is not dependent on ratings.
+For our second permutation nest, we decided to look at how the distribution of column `calories` when `review` is missing differs from the distribution of column `calories` when column `reviews` is not missing. Our null hypothesis is that the distribution of `review` when `calories` is missing is the same as the distribution of `review` when `calories` is not missing.
 
-For our second permutation nest, we decided to look at how the distribution of column `n_steps` when `reviews` is missing differs from the distribution of column `n_steps` when column `reviews` is not missing. We hypothesized that the number of steps may interfere with the user’s patience or time to write a review; lots of steps may leave users feeling more impatient and skip writing a review, for example. Our null hypothesis is that the distribution of `review` when `n_steps` is missing is the same as the distribution of `reviews` when `n_steps` is not missing.
+We decided to use the difference in group means (distribution when `review` was missing - when `review` was not missing) as our test statistic, since `calories` is a quantitative variable. Our observed test statistic was about 319.26908. We got a p-value of about 0.006, which was smaller than our significance level of 0.05. Since we got a p-value that was lower than 0.05, we decided to reject the null. This means that the missingness of reviews is dependent on the number of calories for that recipe.
 
-We decided to use the difference in group means as our test statistic, since `n_steps` is a discrete quantitative variable. Our observed test statistic was about 3.469446951953614e-18. We got a p-value of about 0.0, which was smaller than our significance level of 0.05. Since we got a p-value that was lower than 0.05, which was our threshold, we decided to reject the null. This means that the missingness of reviews is dependent on the number of steps.
+## Hypothesis Testing 
 
-
-## Hypothesis Testing**
-
-Question: Do dessert recipes contain more calories?
+Our question was: Do dessert recipes contain more calories?
 
 Null Hypothesis: The recipes with the dessert tags have the same amount of calories as the recipes with other tags.
 
-Alternative: The recipes with the dessert tags have higher amounts of calories than the recipes with other tags.
+Alternative Hypothesis: The recipes with the dessert tags have higher amounts of calories than the recipes with other tags. 
 
-Test statistic: Signed Difference of Means (between dessert recipes and overall recipes). We chose to use this test statistic because our alternative hypothesis is directional, and we were dealing with quantitative variables (number of calories).
+Test statistic: Signed Difference of Means (between dessert recipes and overall recipes).
+We chose to use this test statistic because our alternative hypothesis is directional, and we were dealing with quantitative variables (number of calories).
 
 Observed Test Stat: 86.71038102803391
 
 Significance Level: 0.05
 
 P-Value: 0.493
-A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. 
 
-Conclusion: We fail to reject the null hypothesis because our p-value of 0.493 is not significant–it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags have the same mean amount of calories as the recipes with other tags. 
+A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. Here, it seems our observed difference is not very large or unique, as under the null hypothesis.
 
+**Conclusion**
+We fail to reject the null hypothesis because our p-value of 0.493 is not significant–it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags do not have significantly more mean calories as the recipes with other tags. 

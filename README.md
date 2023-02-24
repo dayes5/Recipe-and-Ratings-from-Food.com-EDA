@@ -128,6 +128,7 @@ For our first permutation test, we decided to test whether the distribution of c
 
 <iframe src="assets/bar_rating.html" width=800 height=600 frameBorder=0></iframe>
 
+
 **Empirical Distribution of TVD's**
 
 <iframe src="assets/dist_tvd.html" width=800 height=600 frameBorder=0></iframe>
@@ -154,8 +155,9 @@ Observed Test Stat: 86.71038102803391
 Significance Level: 0.05
 
 P-Value: 0.493
-
 A p-value is the likelihood of a sample drawn from the population having a test statistic that is more extreme than our observed value. Here, it seems our observed difference is not very large or unique, as under the null hypothesis.
+
+<iframe src="assets/dist_hyp.html" width=800 height=600 frameBorder=0></iframe>
 
 **Conclusion**
 We fail to reject the null hypothesis because our p-value of 0.493 is not significant–it is greater than our alpha value of 0.05. From our data, it appears that the recipes with the dessert tags do not have significantly more mean calories as the recipes with other tags. 
